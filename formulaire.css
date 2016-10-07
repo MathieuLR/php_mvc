@@ -1,0 +1,37 @@
+h2
+{
+	text-align: center;
+    font-size: 50px;
+    font-family: verdana;
+    margin-top: 6%;
+}
+body
+{
+	background-image:radial-gradient(#FFFFFF,  #FFFFFF);
+}
+label
+{
+	color:#000000;
+}
+#placement
+{
+  position: relative; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width: 80%;
+  text-align: left;
+}
+div
+{
+	font-size: 16px;
+	font-family: verdana;
+}
+.table-hover tbody tr:hover td
+{
+	background-color :#778899;
+}
+#couleurlien
+{
+	color :#000000;
+}
