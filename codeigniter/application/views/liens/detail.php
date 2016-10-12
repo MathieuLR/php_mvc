@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	<title>Atelier PHP n°4 - page de détail</title>
-  <meta charset = "utf-8">
-  <link rel="stylesheet" type="text/css" href= <?= base_url('css/bootstrap.css')?>>
-  <link rel="stylesheet" type="text/css" href= <?= base_url('formulaire.css')?>>
-
-
-  </head>
-    <body>
-      <div class="container global" id="placement">
-       <?php
+      <?php
           if($lien)
           {
-        ?>
+      ?>
             <fieldset class="form-group">
            	  <label>Titre : </label> 
               <div class="panel panel-default">
@@ -66,20 +54,47 @@
             }
         ?>
 
-      <a class="btn btn-danger btn-lg" href="http://127.0.0.1/phase1/codeigniter/index.php/liens/suppr/<?php echo $lien->id?>">
-        Supprimer
-      </a>
-      <a class="btn btn-primary btn-lg" href="http://127.0.0.1/phase1/codeigniter/index.php/liens/modif/<?php echo $lien->id?>">
-        Modifier
-      </a>
-      <br>
-      <br>
-      <a class="btn btn-warning btn-lg" href="http://127.0.0.1/phase1/codeigniter/index.php/liens/liste">Retour a la liste</a>
-      <br>
+                   
 
+      <a class="btn btn-danger btn-lg btn-suppr" data-id="<?= $lien->id ?>"> Supprimer
+      </a>
+      <a class="btn btn-primary btn-lg btn-modif" data-id="<?= $lien->id ?>"> Modifier
+      </a>
+      <br>
+      <br>
+      <a class="btn btn-warning btn-lg btn-retour" >Retour a la liste</a>
+      <br>
+      <div><br></div> 
 
-    </div>
-  </body>
-</html>
-<script src=<?= base_url("js/bootstrap.js")?>></script>
-<script src=<?= base_url("js/jquery.js")?>></script>
+   
+  <script>
+$(".btn-retour").click(function() {
+      $.ajax({ 
+        url: "<?= site_url("liens/liste/") ?>",
+          success: function(data) {
+            $("#listeBox1").html(data);
+            $("#modal_index").modal("hide");
+          },
+      });
+  });
+
+$(".btn-modif").click(function() {
+      $.ajax({ 
+      url: "<?= site_url("liens/modif/") ?>" + $(this).data("id"),
+          success: function(data) {
+            $("#contenu_modal_index").html(data);
+            $("#modal_index").modal("show");
+          },
+      });
+  });
+
+$(".btn-suppr").click(function() {
+      $.ajax({ 
+      url: "<?= site_url("liens/suppr/") ?>" + $(this).data("id"),
+          success: function(data) {
+            $("#contenu_modal_index").html(data);
+            $("#modal_index").modal("show");
+          },
+      });
+  });
+</script>

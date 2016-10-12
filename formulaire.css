@@ -1,6 +1,6 @@
 h2
 {
-	text-align: center;
+	 text-align: center;
     font-size: 50px;
     font-family: verdana;
     margin-top: 6%;
@@ -21,7 +21,7 @@ label
   margin-top: 5%;
   width: 80%;
   text-align: left;
-}
+ }
 div
 {
 	font-size: 16px;
